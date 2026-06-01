@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    /* Definim la tipografia d'Adobe amb alternatives en cas que traci a carregar */
+    font-family: "helvetica-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* --- SECCIÓ 1: LA PORTADA --- */
+.pantalla-inici {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa exactament tota la pantalla inicial */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La flor de tancament de la introducció */
+.flor-separadora {
+    width: 45px;             /* <--- Mida polida i continguda igual que al teu disseny */
+    height: auto;
+    margin-top: 40px;        /* Espai respecte al text de benvinguda de dalt */
+    margin-bottom: 20px;     /* Espai net a sota abans del títol de projectes */
+    display: inline-block;   /* Es manté centrada amb el text-align del contenidor */
+    opacity: 0.9;            /* Un pèl de suavitat visual si ho desitges */
+}
+
+/* El canvas del fons */
+#fons-flors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Fa que es pugui clicar a través de les flors */
+    z-index: 1;           /* <--- Capa 1: Les flors queden en un primer nivell de fons */
+}
+
+/* El contenidor on hi ha el teu logo 'Mart Portfoli' */
+.logo-container {
+    position: relative;   /* Necessari perquè el z-index funcioni */
+    z-index: 10;          /* <--- Capa 10: Forcem que el logo estigui molt més amunt */
+    text-align: center;
+    /* Pots mantenir els marges o padding que ja tinguessis aquí */
+}
+
+/* Per seguretat, ens assegurem que la imatge del logo també hereti la prioritat */
+.logo {
+    position: relative;
+    z-index: 10;
+    max-width: 40%;      /* O la mida que tinguis posada actualment */
+    height: auto;
+}
+
+/* --- SECCIÓ 2: CONTINGUT (SCROLL) --- */
+.contingut-web {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent; /* <--- ABANS: #ffffff. Ara transparent perquè es vegin les flors de fons! */
+    z-index: 5;
+}
+
+/* Contenidor general del sobre mi */
+.sobre-mi {
+    max-width: 520px;          /* <--- Estrenyem el bloc perquè faci exactament les línies del teu disseny */
+    text-align: center;
+    margin-bottom: 140px;      /* Espai net abans que comencin els projectes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* La teva signatura gràfica */
+.signatura {
+    max-width: 140px;          /* Mida fina i polida */
+    height: auto;
+    margin-bottom: 45px;       /* <--- Més espai lliure a sota de la firma */
+}
+
+/* El paràgraf principal de descripció */
+.text-presentacio {
+    font-family: "helvetica-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;          /* Helvetica fina i elegant */
+    line-height: 2;            /* <--- Augmentem bastant l'interlineat perquè respiri */
+    color: #000000;
+    margin-bottom: 45px;       /* <--- Espai lliure abans del text final de benvinguda */
+    text-align: center;
+}
+
+/* Contenidor de la imatge divisora */
+.separador-projecte {
+    width: 100%;
+    max-width: 1100px;       /* Mida màxima permesa perquè no es desproporcioni en pantalles gegants */
+    margin: 120px auto;      /* <--- 120px d'aire net a dalt i a baix per treure la sensació d'enganxat */
+    padding: 0 20px;         /* Coixí de seguretat per a pantalles de portàtil o mòbil */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* La imatge de dins del separador */
+.separador-projecte img {
+    width: 100%;             /* Força que la imatge ocupi tot l'amplada del bloc visual */
+    height: auto;            /* Evita que la imatge es deformi */
+    display: block;
+    border-radius: 4px;      /* Un mini suavitzat a les cantonades (opcional, si l'estil de la web ho demana) */
+}
+
+/* Títol inferior: "projectes audiovisuals" */
+.titol-seccio {
+    font-family: "helvetica-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400; /* Estil Roman */
+    letter-spacing: 6px;          /* <--- SEPARA LES LLETRES de "projectes audiovisuals" */
+    text-transform: lowercase;     /* Força que quedi en minúscules com al teu disseny */
+    color: #000000;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Subtitol del projecte: "animació" */
+.subtitol-projecte {
+    font-family: "helvetica-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 3.2rem;            
+    font-weight: 400; 
+    letter-spacing: 4px;          
+    text-transform: lowercase;     
+    color: #000000;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: baseline;     /* <--- RECOLZA ELS ELEMENTS A LA BASE DE LA 'O' */
+}
+
+/* El contenidor del vídeo: ara actua com un divisor a pantalla gran */
+.contenidor-video {
+    width: 100%;
+    max-width: 1100px;       /* <--- La mateixa mida exacta que el separador d'Active Mind */
+    margin: 80px auto 30px auto; /* Centrat automàtic, amb aire a dalt i una mica a baix */
+    padding: 0 20px;         /* Coixí de seguretat per a pantalles petites */
+    box-sizing: border-box;
+}
+
+/* El reproductor de vídeo real de dins */
+.meu-video {
+    width: 100%;             /* Força que s'estengui fins a ocupar tot el contenidor de 1100px */
+    height: auto;            /* Manté la proporció nativa del teu curt d'animació */
+    display: block;
+    border-radius: 4px;      /* Segueix l'estètica del teu portfoli */
+}
+
+/* --- BLOC DETALL DEL PROJECTE --- */
+.detall-projecte {
+    width: 100%;
+    max-width: 900px; /* Li donem la mateixa amplada màxima que al vídeo perquè quedi alineat */
+    display: flex;
+    justify-content: space-between; /* Separa les dues columnes deixant espai al mig */
+    align-items: flex-start; /* Alinea el text i les fotos a la part superior */
+    gap: 50px; /* L'espai buit de separació entre la columna de text i la de fotos */
+    margin: 0 auto;
+}
+
+/* Columna Esquerra (Text) */
+.columna-text {
+    flex: 1; /* Ocupa el 50% de l'espai disponible */
+}
+
+
+.flor-decorativa {
+    height: 1.1rem;             
+    width: auto;                
+    margin-left: 8px;           
+    display: inline-block;
+    transform: translateY(3px);  /* <--- EMPENY LA FLOR CAP AVALL FINS A LA BASE DE MANERA MANUAL */
+}
+
+.descripcio-projecte {
+    font-size: 1.2rem;
+    line-height: 1.7; /* Perquè el text respiri millor */
+    color: #000000;
+    text-align: justify; /* Text justificat com es veu al teu disseny */
+    font-weight: 300;
+}
+
+/* Columna Dreta (Imatges) */
+.columna-imatges {
+    flex: 1; /* Ocupa l'altre 50% de l'espai */
+    display: flex;
+    flex-direction: column; /* Col·loca les imatges una sota de l'altra */
+    gap: 15px; /* L'espai que hi ha entre les dues imatges de la dreta */
+}
+
+.foto-projecte {
+    width: 100%;
+    height: auto; /* Manté la proporció de la imatge */
+    border-radius: 4px; /* Un toc molt subtil a les cantonades, opcional */
+    display: block;
+}
+
+/* Contenidor principal de la tira de contacte */
+.peu-contacte {
+    width: 100%;
+    background-color: #ffffff; /* Fons blanc net */
+    padding: 40px 10%;         /* Espaiat intern perquè respiri */
+    border-top: 1px solid #f0f0f0; /* Una línia molt fina separadora opcional */
+    display: table;            /* Estructura horitzontal compatible i neta */
+    table-layout: fixed;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Distribució de les 3 columnes reals */
+.columna-footer {
+    display: table-cell;
+    vertical-align: middle;
+    width: 33.33%;
+}
+
+/* Alineació específica perquè quedi simètric com la imatge */
+.columna-footer:first-child { text-align: left; }   /* Signatura a l'esquerra */
+.columna-footer:last-child { text-align: right; }    /* Flor a la dreta */
+
+/* Imatges dels extrems */
+.logo-footer {
+    height: 45px; /* Ajusta-ho segons la mida de la teva signatura */
+    width: auto;
+}
+
+.flor-footer {
+    height: 35px; /* Mida fina de la flor del teu disseny */
+    width: auto;
+}
+
+/* Bloc central del text de contacte */
+.xarxes-footer {
+    text-align: center;
+}
+
+.enllaç-contacte {
+    display: inline-block;
+    color: #4A5320;            /* <--- Color verd oliva/fosc del teu disseny */
+    font-family: Arial, sans-serif; /* O la tipografia que facis servir per als textos */
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;     /* Treu el subratllat clàssic */
+    margin: 0 20px;            /* Espai horitzontal entre l'Instagram i el Mail */
+    transition: opacity 0.2s;
+}
+
+.enllaç-contacte:hover {
+    opacity: 0.7;              /* Efecte suau en passar-hi el ratolí per sobre */
+}
+
+/* Detall estètic per a l'arrova si vols fer-la un pèl diferent */
+.icona-arrova {
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+/* Canvis per a pantalles petites (Mòbils) per evitar que s'esclafeixi */
+@media (max-width: 768px) {
+    .peu-contacte {
+        display: block;
+        padding: 30px 20px;
+    }
+    .columna-footer {
+        display: block;
+        width: 100%;
+        text-align: center !important;
+        margin-bottom: 20px;
+    }
+    .columna-footer:last-child {
+        margin-bottom: 0;
+    }
+    .enllaç-contacte {
+        display: block;
+        margin: 10px 0;
+    }
+}
